@@ -32,7 +32,7 @@ export class InvoicesService {
      invoice.ProductId = invoiceDto.ProductId;
      invoice.ProductCount = invoiceDto.ProductCount;
      invoice.TypeOfOrder = invoiceDto.TypeOfOrder;
-     const warehouses = await this.warehouseRepository.findBy({
+     /*const warehouses = await this.warehouseRepository.findBy({
        //получаем массив Affiliation по id
        Id: In(invoiceDto.warehouses),
      });
@@ -48,7 +48,7 @@ export class InvoicesService {
       //получаем массив Affiliation по id
       Id: In(invoiceDto.products),
     });
-    invoice.products = products;
+    invoice.products = products;*/
 
      await this.invoiceRepository.save(invoice); //сохраняем объект Invoice в БД
      return invoice; //возвращаем объект Invoice
@@ -59,17 +59,17 @@ export class InvoicesService {
       return this.invoiceRepository.findOne({
         //получаем объект Invoice по id
         where: { Id }, //указываем условие поиска по id
-        relations: { warehouses: true, products: true }, //получаем связанные объекты
+       // relations: { warehouses: true, products: true }, //получаем связанные объекты
       });
     }
   
       async findAll(): Promise<Invoice[]> {
         const invoices = await this.invoiceRepository.find({
           //получаем связанные объекты
-          relations: {
+          /*relations: {
             warehouses: true,
             products: true,
-          },
+          },*/
         }); //получаем массив Invoice из БД
         return invoices; //возвращаем массив Invoice
       }

@@ -10,8 +10,8 @@ export class CreateInvoiceDto  {
     ProductId: number;
     ProductCount: number;
     TypeOfOrder: string;
-    warehouses: Warehouse[];
+    /*warehouses: Warehouse[];
     products: Product[];
-    clients: Client[];
+    clients: Client[];*/
   }
   

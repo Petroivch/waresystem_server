@@ -6,6 +6,7 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Invoice } from './invoice.entity';
 
 @Entity('warehouse')
 export class Warehouse {
@@ -15,5 +16,13 @@ export class Warehouse {
     WareName: string;
     @Column()
     WareAddress: string;
+   /* @ManyToMany((type) => Invoice, (invoice) => invoice.warehouses)
+  @JoinTable({
+    name: 'invoice_warehouse',
+    joinColumn: { name: 'warehouse_Id' },
+    inverseJoinColumn: { name: 'invoice_WareId' },
+  })
+  invoices: Invoice[];*/
+
   }
   

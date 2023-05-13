@@ -5,11 +5,15 @@ import { InvoicesModule } from './modules/invoices.module';
 import { ProductsModule } from './modules/products.module';
 import { WarehousesModule } from './modules/warehouse.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { InvoiceListModule } from './modules/invoicelist.module';
+import { ProductlistModule } from './modules/productlist.module';
 
 
 @Module({
   imports: [ClientsModule,
      InvoicesModule,
+     InvoiceListModule,
+     ProductlistModule,
       ProductsModule,
        WarehousesModule,
         DatasourceModule,

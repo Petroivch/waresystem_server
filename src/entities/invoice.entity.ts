@@ -26,14 +26,16 @@ export class Invoice {
     ProductCount: number;
     @Column()
     TypeOfOrder: string;
-    @ManyToMany((type) => Warehouse, (warehouse) => warehouse.Id) //Создадим связь многие ко многим с сущностью article и свяжем с полем authors в статье
+}
+  /*  @ManyToMany((type) => Warehouse, (warehouse) => warehouse.invoices) //Создадим связь многие ко многим с сущностью article и свяжем с полем authors в статье
   @JoinTable({
     //join таблица с названием author_article
     name: 'invoice_warehouse',
-    joinColumn: { name: 'WareId' }, //для связи с идентификатором автора
-    inverseJoinColumn: { name: 'warehouse_Id' }, //для связи с идентификатором статьи
+    joinColumn: { name: 'invoice_WareId' }, //для связи с идентификатором invoice
+    inverseJoinColumn: { name: 'warehouse_Id' }, //для связи с идентификатором warehouse
   })
   warehouses: Warehouse[]; //объект, в котором будем автоматически получать все статьи автора
+
   @ManyToMany((type) => Product, (product) => product.Id) //тоже самое для аффилиаций
   @JoinTable({
     name: 'invoice_product',
@@ -49,5 +51,4 @@ export class Invoice {
     inverseJoinColumn: { name: 'user_Id' },
   })
   clients: Client[];
-  }
-  
+  }*/
