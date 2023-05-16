@@ -26,29 +26,29 @@ export class Invoice {
     ProductCount: number;
     @Column()
     TypeOfOrder: string;
-}
-  /*  @ManyToMany((type) => Warehouse, (warehouse) => warehouse.invoices) //Создадим связь многие ко многим с сущностью article и свяжем с полем authors в статье
-  @JoinTable({
-    //join таблица с названием author_article
-    name: 'invoice_warehouse',
-    joinColumn: { name: 'invoice_WareId' }, //для связи с идентификатором invoice
-    inverseJoinColumn: { name: 'warehouse_Id' }, //для связи с идентификатором warehouse
-  })
-  warehouses: Warehouse[]; //объект, в котором будем автоматически получать все статьи автора
+    @ManyToMany((type) => Warehouse, (warehouse) => warehouse.invoices) //Создадим связь многие ко многим с сущностью article и свяжем с полем authors в статье
+    @JoinTable({
+      //join таблица с названием author_article
+      name: 'warehouse',
+      joinColumn: { name: 'invoice_WareId' }, //для связи с идентификатором invoice
+      inverseJoinColumn: { name: 'warehouse_Id' }, //для связи с идентификатором warehouse
+    })
+    warehouses: Warehouse[];
 
-  @ManyToMany((type) => Product, (product) => product.Id) //тоже самое для аффилиаций
+
+  @ManyToMany((type) => Product, (product) => product.invoices) //тоже самое для аффилиаций
   @JoinTable({
-    name: 'invoice_product',
+    name: 'product',
     joinColumn: { name: 'ProductId' },
     inverseJoinColumn: { name: 'product_Id' },
   })
   products: Product[];
 
-  @ManyToMany((type) => Product, (product) => product.Id) //тоже самое для аффилиаций
+  @ManyToMany((type) => Product, (product) => product.invoices) //тоже самое для аффилиаций
   @JoinTable({
-    name: 'invoice_user',
+    name: 'user',
     joinColumn: { name: 'UserId' },
     inverseJoinColumn: { name: 'user_Id' },
   })
   clients: Client[];
-  }*/
+  }

@@ -16,13 +16,13 @@ export class Warehouse {
     WareName: string;
     @Column()
     WareAddress: string;
-   /* @ManyToMany((type) => Invoice, (invoice) => invoice.warehouses)
+    @ManyToMany((type) => Invoice, (invoice) => invoice.warehouses)
   @JoinTable({
-    name: 'invoice_warehouse',
+    name: 'invoice',
     joinColumn: { name: 'warehouse_Id' },
     inverseJoinColumn: { name: 'invoice_WareId' },
   })
-  invoices: Invoice[];*/
+  invoices: Invoice[];
 
   }
   

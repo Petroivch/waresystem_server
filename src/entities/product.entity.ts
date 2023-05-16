@@ -8,6 +8,7 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Invoice } from './invoice.entity';
 
 @Entity('product')
 export class Product {
@@ -24,4 +25,11 @@ export class Product {
     @Column()
     @ApiProperty({ example: '100', description: 'Цена продукта' })
     Cost: number;
+    @ManyToMany((type) => Invoice, (invoice) => invoice.products)
+    @JoinTable({
+      name: 'invoice',
+      joinColumn: { name: 'product_Id' },
+      inverseJoinColumn: { name: 'invoice_ProductId' },
+    })
+    invoices: Invoice[];
   }
